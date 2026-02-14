@@ -620,31 +620,25 @@
                     </div>
                 </div>
 
-                <!-- Logs Tab (แก้ไขแล้ว) -->
+                <!-- Logs Tab (ปรับปรุง: แสดง 5 รายการล่าสุด และปุ่มดูทั้งหมด) -->
                 <div class="tab-pane fade" id="logs" role="tabpanel">
                     <div class="glass-card bg-white p-0 p-md-3">
-                        <h5 class="mb-4 p-4 pb-0 fw-semibold">📋 Log การใช้งาน</h5>
+                        <h5 class="mb-4 p-4 pb-0 fw-semibold">Log การใช้งาน</h5>
                         <div class="table-responsive px-3">
                             <table class="table table-hover align-middle">
                                 <thead class="table-light">
                                     <tr>
-                                        <th style="min-width: 180px;">เวลา</th>
-                                        <th style="min-width: 200px;">ผู้ใช้</th>
-                                        <th style="min-width: 120px;">กิจกรรม</th>
+                                        <th>เวลา</th>
+                                        <th>ผู้ใช้</th>
+                                        <th>กิจกรรม</th>
                                         <th>รายละเอียด</th>
                                     </tr>
                                 </thead>
                                 <tbody id="logsTableBody">
-                                    <tr>
-                                        <td colspan="4" class="text-center text-muted py-5">
-                                            <i data-lucide="loader" class="animate-spin" style="width: 24px; height: 24px;"></i>
-                                            <div class="mt-2">กำลังโหลดข้อมูล...</div>
-                                        </td>
-                                    </tr>
                                 </tbody>
                             </table>
                         </div>
-                        <!-- ปุ่มดู Log ทั้งหมด -->
+                        <!-- ปุ่มดู Log ทั้งหมด (ซ่อนไว้ก่อน ถ้ามี log มากกว่า 5 ถึงจะแสดง) -->
                         <div class="text-center pb-4">
                             <button id="loadMoreLogsBtn" class="btn btn-outline-primary btn-custom"
                                 style="display: none;">
@@ -774,10 +768,9 @@
             try {
                 const result = await auth.signInWithPopup(provider);
                 currentUser = result.user;
-                logActivity('login', 'เข้าสู่ระบบสำเร็จ');
+                logActivity('login', 'เข้าสู่ระบบ');
                 showApp();
             } catch (error) {
-                console.error('Login error:', error);
                 Swal.fire({ icon: 'error', title: 'เกิดข้อผิดพลาด', text: error.message, confirmButtonColor: '#4f46e5' });
             }
         });
@@ -821,11 +814,12 @@
             if (currentUser.photoURL) {
                 userPhoto.src = currentUser.photoURL;
             } else {
+                // ถ้าไม่มีรูป ใช้ fallback
                 userPhoto.src = 'data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'38\' height=\'38\' viewBox=\'0 0 38 38\'%3E%3Ccircle fill=\'%23cbd5e1\' cx=\'19\' cy=\'19\' r=\'19\'/%3E%3Ctext fill=\'%234b5563\' x=\'19\' y=\'25\' font-size=\'20\' text-anchor=\'middle\' dominant-baseline=\'middle\' font-family=\'Kanit, sans-serif\'%3E%3F%3C/text%3E%3C/svg%3E';
             }
 
             loadWorkDays();
-            loadLogs();
+            loadLogs();  // โหลด logs ทั้งหมดแต่แสดงแค่ 5 รายการล่าสุด
             lucide.createIcons();
         }
 
@@ -876,7 +870,6 @@
                 Swal.fire({ icon: 'success', title: 'บันทึกสำเร็จ', text: `วันที่ ${workDate}`, timer: 1500, showConfirmButton: false });
                 loadWorkDays();
             } catch (error) {
-                console.error('Add work error:', error);
                 Swal.fire('เกิดข้อผิดพลาด', error.message, 'error');
             }
         });
@@ -1010,7 +1003,6 @@
                 Swal.fire({ icon: 'success', title: 'แก้ไขสำเร็จ', timer: 1500, showConfirmButton: false });
                 loadWorkDays();
             } catch (error) {
-                console.error('Update error:', error);
                 Swal.fire('เกิดข้อผิดพลาด', error.message, 'error');
             }
         });
@@ -1033,7 +1025,6 @@
                     logActivity('delete_work', `ลบข้อมูล ID: ${id}`);
                     Swal.fire({ icon: 'success', title: 'ลบสำเร็จ', timer: 1500, showConfirmButton: false });
                 } catch (error) {
-                    console.error('Delete error:', error);
                     Swal.fire('เกิดข้อผิดพลาด', error.message, 'error');
                 }
             }
@@ -1071,143 +1062,85 @@
             document.getElementById('detailOTHours').textContent = totalOTHours.toFixed(1) + ' ชม.';
         }
 
-        // ========== LOGS (แก้ไขให้ทำงานถูกต้อง 100%) ==========
+        // ---------- ส่วน LOGS ที่ปรับปรุงใหม่ (ป้องกัน ReferenceError) ----------
         let allLogs = [];
-        let showAllLogs = false;
 
         async function logActivity(action, details) {
             if (!currentUser) {
-                console.warn('⚠️ No user logged in, cannot save log');
+                console.warn('⚠️ No user, cannot log activity');
                 return;
             }
-
             const log = {
                 user: currentUser.email,
-                userDisplayName: currentUser.displayName || currentUser.email,
                 action,
                 details,
                 timestamp: Date.now(),
-                date: new Date().toLocaleString('th-TH', {
-                    year: 'numeric',
-                    month: 'short',
-                    day: 'numeric',
-                    hour: '2-digit',
-                    minute: '2-digit',
-                    second: '2-digit'
-                })
+                date: new Date().toLocaleString('th-TH')
             };
-
             try {
-                await database.ref('logs').push(log);
-                // console.log('✅ Log saved:', action, '-', details);
+                const newRef = await database.ref('logs').push(log);
+                console.log(`✅ Log saved with key: ${newRef.key}`, log);
+                loadLogs(); // โหลดใหม่
             } catch (error) {
-                console.error('❌ Error saving log:', error);
+                console.error('❌ Firebase error while saving log:', error.code, error.message, error);
+                Swal.fire({ icon: 'error', title: 'บันทึก Log ล้มเหลว', text: error.message });
             }
         }
 
         function loadLogs() {
-            console.log('🔄 Loading logs from Firebase...');
-            const logsRef = database.ref('logs').orderByChild('timestamp').limitToLast(100);
-
-            logsRef.on('value', (snapshot) => {
-                console.log('📊 Firebase snapshot received');
-                const logs = [];
-
-                snapshot.forEach((child) => {
-                    const logData = child.val();
-                    if (logData) {
-                        logs.push({
-                            id: child.key,
-                            ...logData
-                        });
-                    }
+            console.log('📡 กำลังโหลด logs...');
+            const logsRef = database.ref('logs').orderByChild('timestamp');
+            logsRef.once('value')
+                .then((snapshot) => {
+                    console.log('📥 logs snapshot received', snapshot.val());
+                    const logs = [];
+                    snapshot.forEach((child) => {
+                        logs.push(child.val());
+                    });
+                    logs.sort((a, b) => b.timestamp - a.timestamp);
+                    allLogs = logs;
+                    console.log('allLogs assigned, length:', allLogs.length);
+                    displayLogs(false);
+                })
+                .catch((error) => {
+                    console.error('💥 Error loading logs:', error);
+                    document.getElementById('logsTableBody').innerHTML = `<tr><td colspan="4" class="text-center text-danger">เกิดข้อผิดพลาด: ${error.message}</td></tr>`;
                 });
-
-                // เรียงลำดับจากใหม่ไปเก่า
-                logs.sort((a, b) => (b.timestamp || 0) - (a.timestamp || 0));
-                allLogs = logs;
-
-                console.log(`✅ Loaded ${logs.length} logs successfully`);
-                displayLogs(showAllLogs);
-            }, (error) => {
-                console.error('❌ Error loading logs:', error);
-                const tbody = document.getElementById('logsTableBody');
-                if (tbody) {
-                    tbody.innerHTML = `
-                        <tr>
-                            <td colspan="4" class="text-center text-danger py-5">
-                                <i data-lucide="alert-circle" style="width: 24px; height: 24px;"></i>
-                                <div class="mt-2">เกิดข้อผิดพลาดในการโหลดข้อมูล: ${error.message}</div>
-                            </td>
-                        </tr>
-                    `;
-                    lucide.createIcons();
-                }
-            });
         }
 
         function displayLogs(showAll = false) {
             const tbody = document.getElementById('logsTableBody');
             const loadMoreBtn = document.getElementById('loadMoreLogsBtn');
 
-            if (!tbody) {
-                console.error('❌ logsTableBody element not found!');
+            // ป้องกัน error ถ้า allLogs ยังไม่ถูกกำหนด (เผื่อกรณี)
+            const logs = allLogs || [];
+
+            if (logs.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="4" class="text-center text-muted py-5">ยังไม่มีประวัติการใช้งาน</td></tr>';
+                loadMoreBtn.style.display = 'none';
                 return;
             }
 
-            if (!allLogs || allLogs.length === 0) {
-                tbody.innerHTML = `
-                    <tr>
-                        <td colspan="4" class="text-center text-muted py-5">
-                            <i data-lucide="inbox" style="width: 32px; height: 32px;"></i>
-                            <div class="mt-2">📭 ยังไม่มีประวัติการใช้งาน</div>
-                        </td>
-                    </tr>
-                `;
-                if (loadMoreBtn) loadMoreBtn.style.display = 'none';
-                lucide.createIcons();
-                return;
-            }
-
-            // แสดง logs ตามที่ต้องการ
-            const logsToShow = showAll ? allLogs : allLogs.slice(0, 5);
+            const logsToShow = showAll ? logs : logs.slice(0, 5);
 
             tbody.innerHTML = logsToShow.map(log => {
                 const actionBadge = getActionBadge(log.action);
-                return `
-                    <tr>
-                        <td class="text-nowrap">${log.date || 'N/A'}</td>
-                        <td class="text-truncate" style="max-width: 200px;" title="${log.user || 'N/A'}">
-                            ${log.userDisplayName || log.user || 'N/A'}
-                        </td>
-                        <td>${actionBadge}</td>
-                        <td>${log.details || 'N/A'}</td>
-                    </tr>
-                `;
+                return `<tr><td>${log.date}</td><td>${log.user}</td><td>${actionBadge}</td><td>${log.details}</td></tr>`;
             }).join('');
 
-            // จัดการปุ่ม "ดูเพิ่มเติม"
-            if (loadMoreBtn) {
-                if (!showAll && allLogs.length > 5) {
-                    loadMoreBtn.style.display = 'inline-flex';
-                    loadMoreBtn.innerHTML = `
-                        <i data-lucide="chevrons-down" style="width: 18px; height: 18px;"></i>
-                        ดู Log ทั้งหมด (${allLogs.length} รายการ)
-                    `;
-                } else if (showAll && allLogs.length > 5) {
-                    loadMoreBtn.style.display = 'inline-flex';
-                    loadMoreBtn.innerHTML = `
-                        <i data-lucide="chevrons-up" style="width: 18px; height: 18px;"></i>
-                        แสดงน้อยลง
-                    `;
-                } else {
-                    loadMoreBtn.style.display = 'none';
-                }
+            if (!showAll && logs.length > 5) {
+                loadMoreBtn.style.display = 'inline-flex';
+            } else {
+                loadMoreBtn.style.display = 'none';
             }
 
             lucide.createIcons();
-            // console.log(`✅ Displayed ${logsToShow.length} of ${allLogs.length} logs`);
         }
+
+        // Event Listener สำหรับปุ่มดู Log ทั้งหมด
+        document.getElementById('loadMoreLogsBtn').addEventListener('click', () => {
+            displayLogs(true);
+        });
 
         function getActionBadge(action) {
             const badges = {
@@ -1220,24 +1153,10 @@
             return badges[action] || `<span class="badge bg-info">${action}</span>`;
         }
 
-        // Event listener สำหรับปุ่ม Load More
-        document.getElementById('loadMoreLogsBtn').addEventListener('click', () => {
-            showAllLogs = !showAllLogs;
-            displayLogs(showAllLogs);
-        });
-
         // Re-init icons after tab changes
         document.querySelectorAll('button[data-bs-toggle="tab"]').forEach(tab => {
-            tab.addEventListener('shown.bs.tab', () => {
-                lucide.createIcons();
-                // ถ้าเปิด tab logs ให้โหลด logs ใหม่
-                if (tab.id === 'logs-tab') {
-                    // console.log('📋 Logs tab opened, refreshing...');
-                    displayLogs(showAllLogs);
-                }
-            });
+            tab.addEventListener('shown.bs.tab', () => lucide.createIcons());
         });
-
         document.getElementById('editModal').addEventListener('shown.bs.modal', () => lucide.createIcons());
     </script>
 </body>

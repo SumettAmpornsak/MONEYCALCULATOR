@@ -1,0 +1,443 @@
+{
+  "logs": {
+    "-OlRnrEXJVsWPBPqyKSd": {
+      "action": "add_work",
+      "date": "14/2/2569 22:40:23",
+      "details": "บันทึกการทำงาน วันที่ 2026-02-14",
+      "timestamp": 1771083623457,
+      "user": "sumett13ampornsak@gmail.com"
+    },
+    "-OlRnvqKfyHcC7LdS06I": {
+      "action": "delete_work",
+      "date": "14/2/2569 22:40:42",
+      "details": "ลบข้อมูลการทำงาน ID: -OlRnrDkZCTH-EC4hz6N",
+      "timestamp": 1771083642324,
+      "user": "sumett13ampornsak@gmail.com"
+    },
+    "-OlRoCQkXbkhh5sw-G1q": {
+      "action": "add_work",
+      "date": "14/2/2569 22:41:54",
+      "details": "บันทึกการทำงาน วันที่ 2026-02-14",
+      "timestamp": 1771083714343,
+      "user": "sumett13ampornsak@gmail.com"
+    },
+    "-OlRotOe1clqKYUeE613": {
+      "action": "login",
+      "date": "14/2/2569 22:44:56",
+      "details": "เข้าสู่ระบบ",
+      "timestamp": 1771083896424,
+      "user": "pingpiyanuch5@gmail.com"
+    },
+    "-OlRp2Ox6XKEcxjVZfIF": {
+      "action": "add_work",
+      "date": "14/2/2569 22:45:37",
+      "details": "บันทึกการทำงาน วันที่ 2026-02-14",
+      "timestamp": 1771083937275,
+      "user": "pingpiyanuch5@gmail.com"
+    },
+    "-OlRpLJj1KyV04fB44mi": {
+      "action": "add_work",
+      "date": "14/2/2569 22:46:54",
+      "details": "บันทึกการทำงาน วันที่ 2026-02-13",
+      "timestamp": 1771084014764,
+      "user": "pingpiyanuch5@gmail.com"
+    },
+    "-OlRpfprSi3KTJBVi4By": {
+      "action": "logout",
+      "date": "14/2/2569 22:48:21",
+      "details": "ออกจากระบบ",
+      "timestamp": 1771084101038,
+      "user": "sumett13ampornsak@gmail.com"
+    },
+    "-OlRqnFzZ5su6xVhrgzi": {
+      "action": "add_work",
+      "date": "14/2/2569 22:53:15",
+      "details": "บันทึกการทำงาน วันที่ 2026-02-12",
+      "timestamp": 1771084395444,
+      "user": "pingpiyanuch5@gmail.com"
+    },
+    "-OlRqrRr9MgTjWT_cayq": {
+      "action": "add_work",
+      "date": "14/2/2569 22:53:32",
+      "details": "บันทึกการทำงาน วันที่ 2026-02-11",
+      "timestamp": 1771084412588,
+      "user": "pingpiyanuch5@gmail.com"
+    },
+    "-OlRr3zY6ZeTnRjt4pXb": {
+      "action": "login",
+      "date": "14/2/2569 22:54:26",
+      "details": "เข้าสู่ระบบ",
+      "timestamp": 1771084466201,
+      "user": "sumett13ampornsak@gmail.com"
+    },
+    "-OlRrqFLEkAPiB44o6KW": {
+      "action": "add_work",
+      "date": "14/2/2569 22:57:47",
+      "details": "บันทึกการทำงาน วันที่ 2026-02-13",
+      "timestamp": 1771084667978,
+      "user": "sumett13ampornsak@gmail.com"
+    },
+    "-OlRrrbTiwXNumNUB7pw": {
+      "action": "add_work",
+      "date": "14/2/2569 22:57:53",
+      "details": "บันทึกการทำงาน วันที่ 2026-02-12",
+      "timestamp": 1771084673554,
+      "user": "sumett13ampornsak@gmail.com"
+    },
+    "-OlRrsLN4a4KkZsRZjYF": {
+      "action": "add_work",
+      "date": "14/2/2569 22:57:56",
+      "details": "บันทึกการทำงาน วันที่ 2026-02-11",
+      "timestamp": 1771084676556,
+      "user": "sumett13ampornsak@gmail.com"
+    },
+    "-OlRumf9eAshYZnZRYpo": {
+      "action": "add_work",
+      "date": "14/2/2569 23:10:39",
+      "details": "บันทึกการทำงาน วันที่ 2026-02-11",
+      "timestamp": 1771085439742,
+      "user": "sumett13ampornsak@gmail.com"
+    },
+    "-OlRuoR8q3yeDTT0Decs": {
+      "action": "delete_work",
+      "date": "14/2/2569 23:10:46",
+      "details": "ลบข้อมูลการทำงาน ID: -OlRrsKPGs4sUY46gL1-",
+      "timestamp": 1771085446973,
+      "user": "sumett13ampornsak@gmail.com"
+    },
+    "-OlRvk0i2OKkQnqUBta5": {
+      "action": "update_work",
+      "date": "14/2/2569 23:14:51",
+      "details": "แก้ไขข้อมูลการทำงาน วันที่ 2026-02-01",
+      "timestamp": 1771085691025,
+      "user": "sumett13ampornsak@gmail.com"
+    },
+    "-OlRvla5yEExPbuLtLxP": {
+      "action": "update_work",
+      "date": "14/2/2569 23:14:57",
+      "details": "แก้ไขข้อมูลการทำงาน วันที่ 2026-02-11",
+      "timestamp": 1771085697449,
+      "user": "sumett13ampornsak@gmail.com"
+    },
+    "-OlRy7UDh6wfHQ6WOcst": {
+      "action": "login",
+      "date": "14/2/2569 23:25:17",
+      "details": "เข้าสู่ระบบ",
+      "timestamp": 1771086317477,
+      "user": "sumett13ampornsak@gmail.com"
+    },
+    "-OlRyGpAfcCm5EoFA1xD": {
+      "action": "logout",
+      "date": "14/2/2569 23:25:53",
+      "details": "ออกจากระบบ",
+      "timestamp": 1771086353774,
+      "user": "sumett13ampornsak@gmail.com"
+    },
+    "-OlRyKR7IAhA45Rmk564": {
+      "action": "login",
+      "date": "14/2/2569 23:26:10",
+      "details": "เข้าสู่ระบบ",
+      "timestamp": 1771086370567,
+      "user": "sumett13ampornsak@gmail.com"
+    },
+    "-OlRyv-N59o_WANY_Ms-": {
+      "action": "logout",
+      "date": "14/2/2569 23:28:42",
+      "details": "ออกจากระบบ",
+      "timestamp": 1771086522418,
+      "user": "sumett13ampornsak@gmail.com"
+    },
+    "-OlRywl5RHnWVO0-IqUk": {
+      "action": "login",
+      "date": "14/2/2569 23:28:49",
+      "details": "เข้าสู่ระบบ",
+      "timestamp": 1771086529633,
+      "user": "sumett13ampornsak@gmail.com"
+    },
+    "-OlRzDTRyiscjtpISRQ5": {
+      "action": "logout",
+      "date": "14/2/2569 23:30:02",
+      "details": "ออกจากระบบ",
+      "timestamp": 1771086602163,
+      "user": "sumett13ampornsak@gmail.com"
+    },
+    "-OlRzEPbDCivTHib7XfY": {
+      "action": "login",
+      "date": "14/2/2569 23:30:06",
+      "details": "เข้าสู่ระบบ",
+      "timestamp": 1771086606015,
+      "user": "sumett13ampornsak@gmail.com"
+    },
+    "-OlRzJXJcl-tWjtN-edq": {
+      "action": "add_work",
+      "date": "14/2/2569 23:30:26",
+      "details": "บันทึกการทำงาน วันที่ 2026-02-10",
+      "timestamp": 1771086626992,
+      "user": "sumett13ampornsak@gmail.com"
+    },
+    "-OlRzm7851Xzel6AdW3U": {
+      "action": "add_work",
+      "date": "14/2/2569 23:32:28",
+      "details": "บันทึกการทำงาน วันที่ 2026-02-09",
+      "timestamp": 1771086748195,
+      "user": "sumett13ampornsak@gmail.com"
+    },
+    "-OlRznYGUnpreraHIkpc": {
+      "action": "update_work",
+      "date": "14/2/2569 23:32:34",
+      "details": "แก้ไขข้อมูล วันที่ 2026-02-10",
+      "timestamp": 1771086754026,
+      "user": "sumett13ampornsak@gmail.com"
+    },
+    "-OlRzpYciXGAGSp4NRxG": {
+      "action": "add_work",
+      "date": "14/2/2569 23:32:42",
+      "details": "บันทึกการทำงาน วันที่ 2026-02-08",
+      "timestamp": 1771086762242,
+      "user": "sumett13ampornsak@gmail.com"
+    },
+    "-OlS-gnhhicctFMS5nHl": {
+      "action": "logout",
+      "date": "14/2/2569 23:36:28",
+      "details": "ออกจากระบบ",
+      "timestamp": 1771086988543,
+      "user": "sumett13ampornsak@gmail.com"
+    },
+    "-OlS-iyjlCztIKGW7eke": {
+      "action": "login",
+      "date": "14/2/2569 23:36:37",
+      "details": "เข้าสู่ระบบ",
+      "timestamp": 1771086997442,
+      "user": "sumett13ampornsak@gmail.com"
+    },
+    "-OlS-mwDlI70tKkRYEoY": {
+      "action": "add_work",
+      "date": "14/2/2569 23:36:53",
+      "details": "บันทึกการทำงาน วันที่ 2026-02-07",
+      "timestamp": 1771087013665,
+      "user": "sumett13ampornsak@gmail.com"
+    },
+    "-OlS0-mNgMhc-4NYG70v": {
+      "action": "login",
+      "date": "14/2/2569 23:37:52",
+      "details": "เข้าสู่ระบบ",
+      "timestamp": 1771087072376,
+      "user": "sumett13ampornsak@gmail.com"
+    },
+    "-OlS0t5UIh5Tachy-N4v": {
+      "action": "update_work",
+      "date": "14/2/2569 23:41:41",
+      "details": "แก้ไขข้อมูล วันที่ 2026-02-07",
+      "timestamp": 1771087301076,
+      "user": "sumett13ampornsak@gmail.com"
+    },
+    "-OlS0uZS6r83L37T2K2l": {
+      "action": "update_work",
+      "date": "14/2/2569 23:41:47",
+      "details": "แก้ไขข้อมูล วันที่ 2026-02-07",
+      "timestamp": 1771087307090,
+      "user": "sumett13ampornsak@gmail.com"
+    },
+    "-OlS1l5eCS_W7zPS13lT": {
+      "action": "logout",
+      "date": "14/2/2569 23:45:30",
+      "details": "ออกจากระบบ",
+      "timestamp": 1771087530423,
+      "user": "sumett13ampornsak@gmail.com"
+    },
+    "-OlS1mVRWrPjNrCQVo_u": {
+      "action": "login",
+      "date": "14/2/2569 23:45:36",
+      "details": "เข้าสู่ระบบ",
+      "timestamp": 1771087536170,
+      "user": "sumett13ampornsak@gmail.com"
+    },
+    "-OlS1q9lEhSSTNRQeNe6": {
+      "action": "logout",
+      "date": "14/2/2569 23:45:51",
+      "details": "ออกจากระบบ",
+      "timestamp": 1771087551167,
+      "user": "sumett13ampornsak@gmail.com"
+    },
+    "-OlS2vp68QFhue2Mz0NM": {
+      "action": "logout",
+      "date": "14/2/2569 23:50:36",
+      "details": "ออกจากระบบ",
+      "timestamp": 1771087836499,
+      "user": "sumett13ampornsak@gmail.com"
+    },
+    "-OlS2x1Err-uUfUaZrEJ": {
+      "action": "login",
+      "date": "14/2/2569 23:50:41",
+      "details": "เข้าสู่ระบบ",
+      "timestamp": 1771087841437,
+      "user": "sumett13ampornsak@gmail.com"
+    }
+  },
+  "users": {
+    "M6lM93gDVmaTIbiLeoO5qmUAAAF2": {
+      "workDays": {
+        "-OlRp2OC_GpBe-yUd6_P": {
+          "date": "2026-02-14",
+          "hourlyRate": 39.5,
+          "otHours": 2.5,
+          "otIncome": 148.125,
+          "otRate": 1.5,
+          "shift": "morning",
+          "status": "work",
+          "timestamp": 1771083937226,
+          "totalIncome": 464.125,
+          "workHours": 8,
+          "workIncome": 316
+        },
+        "-OlRpLIz0-u9lOslBBmC": {
+          "date": "2026-02-13",
+          "hourlyRate": 39.5,
+          "otHours": 2.5,
+          "otIncome": 148.125,
+          "otRate": 1.5,
+          "shift": "morning",
+          "status": "work",
+          "timestamp": 1771084014716,
+          "totalIncome": 464.125,
+          "workHours": 8,
+          "workIncome": 316
+        },
+        "-OlRqnFDO_fIun5WsytE": {
+          "date": "2026-02-12",
+          "hourlyRate": 39.5,
+          "otHours": 2.5,
+          "otIncome": 148.125,
+          "otRate": 1.5,
+          "shift": "morning",
+          "status": "work",
+          "timestamp": 1771084395393,
+          "totalIncome": 464.125,
+          "workHours": 8,
+          "workIncome": 316
+        },
+        "-OlRqrRA5WJbe87xBgy5": {
+          "date": "2026-02-11",
+          "hourlyRate": 39.5,
+          "otHours": 2.5,
+          "otIncome": 148.125,
+          "otRate": 1.5,
+          "shift": "morning",
+          "status": "work",
+          "timestamp": 1771084412543,
+          "totalIncome": 464.125,
+          "workHours": 8,
+          "workIncome": 316
+        }
+      }
+    },
+    "aUhUbCojmwbcHU5vMmKs626OFvq2": {
+      "workDays": {
+        "-OlRoCQ63Wnxr5yf9S3w": {
+          "date": "2026-02-14",
+          "hourlyRate": 39.5,
+          "otHours": 2.5,
+          "otIncome": 148.125,
+          "otRate": 1.5,
+          "shift": "morning",
+          "status": "work",
+          "timestamp": 1771083714301,
+          "totalIncome": 464.125,
+          "workHours": 8,
+          "workIncome": 316
+        },
+        "-OlRrqEX5iUQ3yH9a5k3": {
+          "date": "2026-02-13",
+          "hourlyRate": 39.5,
+          "otHours": 2.5,
+          "otIncome": 148.125,
+          "otRate": 1.5,
+          "shift": "morning",
+          "status": "work",
+          "timestamp": 1771084667925,
+          "totalIncome": 464.125,
+          "workHours": 8,
+          "workIncome": 316
+        },
+        "-OlRrralhBcib2TgXe14": {
+          "date": "2026-02-12",
+          "hourlyRate": 39.5,
+          "otHours": 2.5,
+          "otIncome": 148.125,
+          "otRate": 1.5,
+          "shift": "morning",
+          "status": "work",
+          "timestamp": 1771084673509,
+          "totalIncome": 464.125,
+          "workHours": 8,
+          "workIncome": 316
+        },
+        "-OlRumeS_niVtr6rVmfo": {
+          "date": "2026-02-11",
+          "hourlyRate": 39.5,
+          "otHours": 2.5,
+          "otIncome": 148.125,
+          "otRate": 1.5,
+          "shift": "morning",
+          "status": "work",
+          "timestamp": 1771085697406,
+          "totalIncome": 464.125,
+          "workHours": 8,
+          "workIncome": 316
+        },
+        "-OlRzJWQOWSwfq7tTAhk": {
+          "date": "2026-02-10",
+          "hourlyRate": 39.5,
+          "otHours": 2.5,
+          "otIncome": 148.125,
+          "otRate": 1.5,
+          "shift": "morning",
+          "status": "work",
+          "timestamp": 1771086753974,
+          "totalIncome": 464.125,
+          "workHours": 8,
+          "workIncome": 316
+        },
+        "-OlRzm6S-fIqh8pxce_N": {
+          "date": "2026-02-09",
+          "hourlyRate": 39.5,
+          "otHours": 2.5,
+          "otIncome": 148.125,
+          "otRate": 1.5,
+          "shift": "morning",
+          "status": "work",
+          "timestamp": 1771086748150,
+          "totalIncome": 464.125,
+          "workHours": 8,
+          "workIncome": 316
+        },
+        "-OlRzpXvjem4g0ztMtFF": {
+          "date": "2026-02-08",
+          "hourlyRate": 39.5,
+          "otHours": 2.5,
+          "otIncome": 148.125,
+          "otRate": 1.5,
+          "shift": "morning",
+          "status": "work",
+          "timestamp": 1771086762197,
+          "totalIncome": 464.125,
+          "workHours": 8,
+          "workIncome": 316
+        },
+        "-OlS-mvYix9USewDnSK8": {
+          "date": "2026-02-07",
+          "hourlyRate": 39.5,
+          "otHours": 2.5,
+          "otIncome": 148.125,
+          "otRate": 1.5,
+          "shift": "morning",
+          "status": "work",
+          "timestamp": 1771087307037,
+          "totalIncome": 464.125,
+          "workHours": 8,
+          "workIncome": 316
+        }
+      }
+    }
+  }
+}
