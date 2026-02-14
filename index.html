@@ -4,16 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ระบบคำนวณเงินเดือน</title>
+    <title>ระบบคำนวณเงินเดือน - CRUD</title>
 
     <!-- Bootstrap 5 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- AOS Animation -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-
-    <!-- Swiper -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
 
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -141,16 +138,6 @@
             font-weight: 600;
         }
 
-        .table-custom {
-            border-radius: 12px;
-            overflow: hidden;
-        }
-
-        .table-custom thead {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-            color: white;
-        }
-
         .icon-box {
             width: 60px;
             height: 60px;
@@ -166,15 +153,20 @@
             display: none;
         }
 
-        .loading {
-            text-align: center;
-            padding: 40px;
+        .modal-content {
+            border-radius: 20px;
+            border: none;
         }
 
-        .spinner-border-custom {
-            width: 3rem;
-            height: 3rem;
-            border-width: 4px;
+        .modal-header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            border-radius: 20px 20px 0 0;
+        }
+
+        .btn-group-actions {
+            display: flex;
+            gap: 8px;
         }
     </style>
 </head>
@@ -220,7 +212,7 @@
                 <div class="col-md-6">
                     <h3 class="mb-0">
                         <i data-lucide="calculator" style="width: 28px; height: 28px; margin-right: 8px;"></i>
-                        ระบบคำนวณเงินเดือน
+                        ระบบคำนวณเงินเดือน (CRUD)
                     </h3>
                 </div>
                 <div class="col-md-6 text-end">
@@ -264,6 +256,7 @@
                 <div class="tab-pane fade show active" id="work" role="tabpanel">
                     <div class="row">
                         <div class="col-md-4">
+                            <h5 class="mb-3">เพิ่มข้อมูลการทำงาน</h5>
                             <div class="mb-3">
                                 <label class="form-label">วันที่</label>
                                 <input type="date" class="form-control" id="workDate">
@@ -455,6 +448,72 @@
         </div>
     </div>
 
+    <!-- Edit Modal -->
+    <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="editModalLabel">
+                        <i data-lucide="edit" style="width: 20px; height: 20px; margin-right: 8px;"></i>
+                        แก้ไขข้อมูลการทำงาน
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <input type="hidden" id="editWorkId">
+                    <div class="mb-3">
+                        <label class="form-label">วันที่</label>
+                        <input type="date" class="form-control" id="editWorkDate">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">กะการทำงาน</label>
+                        <select class="form-select" id="editShift">
+                            <option value="morning">กะเช้า (07:00-19:00)</option>
+                            <option value="night">กะดึก (19:00-07:00)</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">จำนวนชั่วโมงทำงาน</label>
+                        <input type="number" class="form-control" id="editWorkHours" min="0" max="24" step="0.5">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">โอที (ชั่วโมง)</label>
+                        <select class="form-select" id="editOtHours">
+                            <option value="0">ไม่มี OT</option>
+                            <option value="1.5">1.5 ชั่วโมง</option>
+                            <option value="2">2 ชั่วโมง</option>
+                            <option value="2.5">2.5 ชั่วโมง</option>
+                            <option value="3">3 ชั่วโมง</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">สถานะ</label>
+                        <select class="form-select" id="editStatus">
+                            <option value="work">ทำงาน</option>
+                            <option value="leave">ลา</option>
+                            <option value="absent">ขาด</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">อัตราค่าจ้าง/ชั่วโมง (บาท)</label>
+                        <input type="number" class="form-control" id="editHourlyRate" min="0" step="0.01">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">อัตรา OT (เท่า)</label>
+                        <input type="number" class="form-control" id="editOtRate" min="1" step="0.5">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">ยกเลิก</button>
+                    <button type="button" class="btn btn-primary" id="saveEditBtn">
+                        <i data-lucide="save" style="width: 18px; height: 18px;"></i>
+                        บันทึกการแก้ไข
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Firebase -->
     <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
@@ -469,14 +528,11 @@
     <!-- AOS -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
-    <!-- Swiper -->
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
 
     <script>
-        // Firebase Configuration - ใส่ Config ของคุณที่นี่
+        // Firebase Configuration
         const firebaseConfig = {
             apiKey: "AIzaSyD7hnTFkUhvgfi__5sh7zInp7LPBIVF5uw",
             authDomain: "money-calculator-ef87d.firebaseapp.com",
@@ -502,6 +558,12 @@
         lucide.createIcons();
 
         let currentUser = null;
+        let editModal = null;
+
+        // Initialize Modal
+        document.addEventListener('DOMContentLoaded', () => {
+            editModal = new bootstrap.Modal(document.getElementById('editModal'));
+        });
 
         // Google Login
         document.getElementById('googleLoginBtn').addEventListener('click', async () => {
@@ -566,7 +628,7 @@
         // Set today's date
         document.getElementById('workDate').valueAsDate = new Date();
 
-        // Add Work Day
+        // Add Work Day (CREATE)
         document.getElementById('addWorkDay').addEventListener('click', async () => {
             const workDate = document.getElementById('workDate').value;
             const shift = document.getElementById('shift').value;
@@ -619,7 +681,7 @@
             }
         });
 
-        // Load Work Days
+        // Load Work Days (READ)
         async function loadWorkDays() {
             if (!currentUser) return;
 
@@ -664,19 +726,24 @@
                             <div class="col-md-2">
                                 ${statusBadge}
                             </div>
-                            <div class="col-md-2">
-                                <small class="text-muted">ทำงาน: ${day.workHours} ชม.</small>
-                            </div>
-                            <div class="col-md-2">
-                                <small class="text-muted">OT: ${day.otHours} ชม.</small>
+                            <div class="col-md-1">
+                                <small class="text-muted">${day.workHours} ชม.</small>
                             </div>
                             <div class="col-md-1">
+                                <small class="text-muted">OT ${day.otHours} ชม.</small>
+                            </div>
+                            <div class="col-md-2">
                                 <strong class="text-success">${day.totalIncome.toFixed(2)} ฿</strong>
                             </div>
-                            <div class="col-md-1 text-end">
-                                <button class="btn btn-sm btn-danger" onclick="deleteWorkDay('${day.id}')">
-                                    <i data-lucide="trash-2" style="width: 16px; height: 16px;"></i>
-                                </button>
+                            <div class="col-md-2 text-end">
+                                <div class="btn-group-actions">
+                                    <button class="btn btn-sm btn-warning" onclick="editWorkDay('${day.id}', ${JSON.stringify(day).replace(/"/g, '&quot;')})">
+                                        <i data-lucide="edit" style="width: 16px; height: 16px;"></i>
+                                    </button>
+                                    <button class="btn btn-sm btn-danger" onclick="deleteWorkDay('${day.id}')">
+                                        <i data-lucide="trash-2" style="width: 16px; height: 16px;"></i>
+                                    </button>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -695,7 +762,77 @@
             return badges[status] || '';
         }
 
-        // Delete Work Day
+        // Edit Work Day (UPDATE)
+        function editWorkDay(id, data) {
+            document.getElementById('editWorkId').value = id;
+            document.getElementById('editWorkDate').value = data.date;
+            document.getElementById('editShift').value = data.shift;
+            document.getElementById('editWorkHours').value = data.workHours;
+            document.getElementById('editOtHours').value = data.otHours;
+            document.getElementById('editStatus').value = data.status;
+            document.getElementById('editHourlyRate').value = data.hourlyRate;
+            document.getElementById('editOtRate').value = data.otRate;
+
+            editModal.show();
+            lucide.createIcons();
+        }
+
+        // Save Edit
+        document.getElementById('saveEditBtn').addEventListener('click', async () => {
+            const id = document.getElementById('editWorkId').value;
+            const workDate = document.getElementById('editWorkDate').value;
+            const shift = document.getElementById('editShift').value;
+            const workHours = parseFloat(document.getElementById('editWorkHours').value);
+            const otHours = parseFloat(document.getElementById('editOtHours').value);
+            const status = document.getElementById('editStatus').value;
+            const hourlyRate = parseFloat(document.getElementById('editHourlyRate').value);
+            const otRate = parseFloat(document.getElementById('editOtRate').value);
+
+            if (!workDate) {
+                Swal.fire('กรุณาเลือกวันที่', '', 'warning');
+                return;
+            }
+
+            const workIncome = status === 'work' ? workHours * hourlyRate : 0;
+            const otIncome = status === 'work' ? otHours * hourlyRate * otRate : 0;
+            const totalIncome = workIncome + otIncome;
+
+            const updatedWorkDay = {
+                date: workDate,
+                shift,
+                workHours,
+                otHours,
+                status,
+                hourlyRate,
+                otRate,
+                workIncome,
+                otIncome,
+                totalIncome,
+                timestamp: Date.now()
+            };
+
+            try {
+                await database.ref(`users/${currentUser.uid}/workDays/${id}`).update(updatedWorkDay);
+
+                logActivity('update_work', `แก้ไขข้อมูลการทำงาน วันที่ ${workDate}`);
+
+                editModal.hide();
+
+                Swal.fire({
+                    icon: 'success',
+                    title: 'แก้ไขสำเร็จ',
+                    text: 'แก้ไขข้อมูลการทำงานเรียบร้อย',
+                    timer: 1500,
+                    showConfirmButton: false
+                });
+
+                loadWorkDays();
+            } catch (error) {
+                Swal.fire('เกิดข้อผิดพลาด', error.message, 'error');
+            }
+        });
+
+        // Delete Work Day (DELETE)
         async function deleteWorkDay(id) {
             const result = await Swal.fire({
                 title: 'ลบข้อมูล?',
@@ -831,6 +968,11 @@
             tab.addEventListener('shown.bs.tab', () => {
                 lucide.createIcons();
             });
+        });
+
+        // Modal shown handler
+        document.getElementById('editModal').addEventListener('shown.bs.modal', () => {
+            lucide.createIcons();
         });
     </script>
 </body>
