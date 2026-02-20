@@ -1,0 +1,361 @@
+{
+  "logs": {
+    "-OlvgJIA8F0e1dgUydFa": {
+      "action": "logout",
+      "date": "20 ก.พ. 2569 22:35:40",
+      "details": "ออกจากระบบ",
+      "timestamp": 1771601740868,
+      "user": "sumett13ampornsak@gmail.com",
+      "userDisplayName": "Sumett studio"
+    },
+    "-OlvgSnNzvGsJrQuEDaK": {
+      "action": "login",
+      "date": "20 ก.พ. 2569 22:36:19",
+      "details": "เข้าสู่ระบบสำเร็จ",
+      "timestamp": 1771601779927,
+      "user": "sumett13ampornsak@gmail.com",
+      "userDisplayName": "Sumett studio"
+    },
+    "-OlvgtbyeqOUZaPKkFKA": {
+      "action": "logout",
+      "date": "20 ก.พ. 2569 22:38:13",
+      "details": "ออกจากระบบ",
+      "timestamp": 1771601893751,
+      "user": "sumett13ampornsak@gmail.com",
+      "userDisplayName": "Sumett studio"
+    },
+    "-Olvh4ryi1OE6vjDF6Jx": {
+      "action": "login",
+      "date": "20 ก.พ. 2569 22:39:04",
+      "details": "เข้าสู่ระบบสำเร็จ",
+      "timestamp": 1771601944061,
+      "user": "sumett13ampornsak@gmail.com",
+      "userDisplayName": "Sumett studio"
+    },
+    "-Olvh86NKvMR7vnFA7Bp": {
+      "action": "logout",
+      "date": "20 ก.พ. 2569 22:39:17",
+      "details": "ออกจากระบบ",
+      "timestamp": 1771601957198,
+      "user": "sumett13ampornsak@gmail.com",
+      "userDisplayName": "Sumett studio"
+    },
+    "-Olvh9Ijs1KZUhmlfdej": {
+      "action": "login",
+      "date": "20 ก.พ. 2569 22:39:22",
+      "details": "เข้าสู่ระบบสำเร็จ",
+      "timestamp": 1771601962085,
+      "user": "sumett13ampornsak@gmail.com",
+      "userDisplayName": "Sumett studio"
+    },
+    "-OlvhctVVBfi2avkl6gL": {
+      "action": "delete_all_work",
+      "date": "20 ก.พ. 2569 22:41:27",
+      "details": "ลบข้อมูลการทำงานทั้งหมด",
+      "timestamp": 1771602087392,
+      "user": "sumett13ampornsak@gmail.com",
+      "userDisplayName": "Sumett studio"
+    },
+    "-OlvhdfWJ2RloUfG8hwZ": {
+      "action": "delete_all_work",
+      "date": "20 ก.พ. 2569 22:41:30",
+      "details": "ลบข้อมูลการทำงานทั้งหมด",
+      "timestamp": 1771602090593,
+      "user": "sumett13ampornsak@gmail.com",
+      "userDisplayName": "Sumett studio"
+    },
+    "-OlvhwMcLt_0VN_IT19M": {
+      "action": "add_work",
+      "date": "20 ก.พ. 2569 22:42:47",
+      "details": "บันทึกการทำงาน วันที่ 2026-02-20",
+      "timestamp": 1771602167137,
+      "user": "sumett13ampornsak@gmail.com",
+      "userDisplayName": "Sumett studio"
+    },
+    "-Olvhx2HGY4bNKIZXNQR": {
+      "action": "add_work",
+      "date": "20 ก.พ. 2569 22:42:49",
+      "details": "บันทึกการทำงาน วันที่ 2026-02-20",
+      "timestamp": 1771602169931,
+      "user": "sumett13ampornsak@gmail.com",
+      "userDisplayName": "Sumett studio"
+    },
+    "-Olvhy2ayCfKLHIDl3_l": {
+      "action": "delete_work",
+      "date": "20 ก.พ. 2569 22:42:54",
+      "details": "ลบข้อมูล ID: -Olvhx1dwABbucyWglVR",
+      "timestamp": 1771602174047,
+      "user": "sumett13ampornsak@gmail.com",
+      "userDisplayName": "Sumett studio"
+    },
+    "-OlvhzpEQBglr6IQjdOt": {
+      "action": "update_work",
+      "date": "20 ก.พ. 2569 22:43:01",
+      "details": "แก้ไขข้อมูล วันที่ 2026-02-20",
+      "timestamp": 1771602181319,
+      "user": "sumett13ampornsak@gmail.com",
+      "userDisplayName": "Sumett studio"
+    },
+    "-Olvi8KIPg2fT3GL92-9": {
+      "action": "logout",
+      "date": "20 ก.พ. 2569 22:43:40",
+      "details": "ออกจากระบบ",
+      "timestamp": 1771602220235,
+      "user": "sumett13ampornsak@gmail.com",
+      "userDisplayName": "Sumett studio"
+    },
+    "-Olvik7Q5xJHAsyeHMQO": {
+      "action": "login",
+      "date": "20 ก.พ. 2569 22:46:19",
+      "details": "เข้าสู่ระบบสำเร็จ",
+      "timestamp": 1771602379255,
+      "user": "sumett13ampornsak@gmail.com",
+      "userDisplayName": "Sumett studio"
+    },
+    "-OlvinSQhkUrz9iRDvZb": {
+      "action": "logout",
+      "date": "20 ก.พ. 2569 22:46:32",
+      "details": "ออกจากระบบ",
+      "timestamp": 1771602392780,
+      "user": "sumett13ampornsak@gmail.com",
+      "userDisplayName": "Sumett studio"
+    },
+    "-OlvjFhohvPumjJBsBHh": {
+      "action": "login",
+      "date": "20 ก.พ. 2569 22:48:32",
+      "details": "เข้าสู่ระบบสำเร็จ",
+      "timestamp": 1771602512755,
+      "user": "sumett13ampornsak@gmail.com",
+      "userDisplayName": "Sumett studio"
+    },
+    "-Olvj_D_LagUwsqqrJ96": {
+      "action": "login",
+      "date": "20 ก.พ. 2569 22:49:56",
+      "details": "เข้าสู่ระบบสำเร็จ",
+      "timestamp": 1771602596772,
+      "user": "sumett13ampornsak@gmail.com",
+      "userDisplayName": "Sumett studio"
+    },
+    "-Olvkf4nTTCsu2fd13Ye": {
+      "action": "logout",
+      "date": "20 ก.พ. 2569 22:54:42",
+      "details": "ออกจากระบบ",
+      "timestamp": 1771602882787,
+      "user": "sumett13ampornsak@gmail.com",
+      "userDisplayName": "Sumett studio"
+    }
+  },
+  "users": {
+    "6eIP7tghEUQUnEzIK7nvWKnQvT62": {
+      "workDays": {
+        "-OlSLn_oajmEVsO67YAS": {
+          "date": "2026-02-14",
+          "hourlyRate": 39.5,
+          "otHours": 2.5,
+          "otIncome": 148.125,
+          "otRate": 1.5,
+          "shift": "morning",
+          "status": "work",
+          "timestamp": 1771092784857,
+          "totalIncome": 464.125,
+          "workHours": 8,
+          "workIncome": 316
+        },
+        "-OlSLpszuox23vmmYhT6": {
+          "date": "2026-02-13",
+          "hourlyRate": 39.5,
+          "otHours": 2.5,
+          "otIncome": 148.125,
+          "otRate": 1.5,
+          "shift": "morning",
+          "status": "work",
+          "timestamp": 1771092794276,
+          "totalIncome": 464.125,
+          "workHours": 8,
+          "workIncome": 316
+        },
+        "-OlSLrZ3kAV5BbZ72hf9": {
+          "date": "2026-02-12",
+          "hourlyRate": 39.5,
+          "otHours": 2.5,
+          "otIncome": 0,
+          "otRate": 1.5,
+          "shift": "morning",
+          "status": "leave",
+          "timestamp": 1771092801130,
+          "totalIncome": 0,
+          "workHours": 8,
+          "workIncome": 0
+        },
+        "-OlSLun0sfcRusyKFnkh": {
+          "date": "2026-02-11",
+          "hourlyRate": 39.5,
+          "otHours": 2.5,
+          "otIncome": 0,
+          "otRate": 1.5,
+          "shift": "morning",
+          "status": "absent",
+          "timestamp": 1771092814373,
+          "totalIncome": 0,
+          "workHours": 8,
+          "workIncome": 0
+        },
+        "-OlSM1FAS6Pvf21Ov6JB": {
+          "date": "2026-02-10",
+          "hourlyRate": 39.5,
+          "otHours": 0,
+          "otIncome": 0,
+          "otRate": 1.5,
+          "shift": "morning",
+          "status": "work",
+          "timestamp": 1771092844912,
+          "totalIncome": 316,
+          "workHours": 8,
+          "workIncome": 316
+        },
+        "-OlSM2doQfORbZDytITm": {
+          "date": "2026-02-09",
+          "hourlyRate": 39.5,
+          "otHours": 0,
+          "otIncome": 0,
+          "otRate": 1.5,
+          "shift": "morning",
+          "status": "work",
+          "timestamp": 1771092850650,
+          "totalIncome": 316,
+          "workHours": 8,
+          "workIncome": 316
+        },
+        "-OlSM41ABcy0tl8q9s68": {
+          "date": "2026-02-08",
+          "hourlyRate": 39.5,
+          "otHours": 0,
+          "otIncome": 0,
+          "otRate": 1.5,
+          "shift": "morning",
+          "status": "work",
+          "timestamp": 1771092856304,
+          "totalIncome": 316,
+          "workHours": 8,
+          "workIncome": 316
+        },
+        "-OlSM63Ma9yPcwA9m2qT": {
+          "date": "2026-02-07",
+          "hourlyRate": 39.5,
+          "otHours": 0,
+          "otIncome": 0,
+          "otRate": 1.5,
+          "shift": "morning",
+          "status": "work",
+          "timestamp": 1771092864637,
+          "totalIncome": 316,
+          "workHours": 8,
+          "workIncome": 316
+        },
+        "-OlSM7L_hzHSVAhGPC07": {
+          "date": "2026-02-06",
+          "hourlyRate": 39.5,
+          "otHours": 0,
+          "otIncome": 0,
+          "otRate": 1.5,
+          "shift": "morning",
+          "status": "work",
+          "timestamp": 1771092869898,
+          "totalIncome": 316,
+          "workHours": 8,
+          "workIncome": 316
+        },
+        "-OlSM8gZHjZ5krOs-szb": {
+          "date": "2026-02-05",
+          "hourlyRate": 39.5,
+          "otHours": 0,
+          "otIncome": 0,
+          "otRate": 1.5,
+          "shift": "morning",
+          "status": "work",
+          "timestamp": 1771092875402,
+          "totalIncome": 316,
+          "workHours": 8,
+          "workIncome": 316
+        },
+        "-OlSMA0vD1fKsujH2oS-": {
+          "date": "2026-02-04",
+          "hourlyRate": 39.5,
+          "otHours": 0,
+          "otIncome": 0,
+          "otRate": 1.5,
+          "shift": "morning",
+          "status": "work",
+          "timestamp": 1771092880865,
+          "totalIncome": 316,
+          "workHours": 8,
+          "workIncome": 316
+        },
+        "-OlSMBVH9IpEYJre4_2q": {
+          "date": "2026-02-03",
+          "hourlyRate": 39.5,
+          "otHours": 0,
+          "otIncome": 0,
+          "otRate": 1.5,
+          "shift": "morning",
+          "status": "work",
+          "timestamp": 1771092886904,
+          "totalIncome": 316,
+          "workHours": 8,
+          "workIncome": 316
+        },
+        "-OlSMD-Vo4OmhTL30FAE": {
+          "date": "2026-02-02",
+          "hourlyRate": 39.5,
+          "otHours": 0,
+          "otIncome": 0,
+          "otRate": 1.5,
+          "shift": "morning",
+          "status": "work",
+          "timestamp": 1771092893062,
+          "totalIncome": 316,
+          "workHours": 8,
+          "workIncome": 316
+        },
+        "-OlSME_ydA-bVud6FeeV": {
+          "date": "2026-02-01",
+          "hourlyRate": 39.5,
+          "otHours": 0,
+          "otIncome": 0,
+          "otRate": 1.5,
+          "shift": "morning",
+          "status": "work",
+          "timestamp": 1771092899555,
+          "totalIncome": 316,
+          "workHours": 8,
+          "workIncome": 316
+        }
+      }
+    },
+    "aUhUbCojmwbcHU5vMmKs626OFvq2": {
+      "settings": {
+        "hourlyRate": 39.58,
+        "otRate": 1.5,
+        "shift": "morning",
+        "socialSecurity": 5,
+        "updatedAt": 1771601707509,
+        "workHours": 8
+      },
+      "workDays": {
+        "-OlvhwLoN95GQuCxs3tO": {
+          "date": "2026-02-20",
+          "hourlyRate": 39.58,
+          "otHours": 3,
+          "otIncome": 178.10999999999999,
+          "otRate": 1.5,
+          "shift": "morning",
+          "status": "work",
+          "timestamp": 1771602181251,
+          "totalIncome": 494.75,
+          "workHours": 8,
+          "workIncome": 316.64
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,100 @@
+{
+  "rules": {
+    "users": {
+      "$uid": {
+        ".read": "$uid === auth.uid",
+        ".write": "$uid === auth.uid",
+
+        "workDays": {
+          ".indexOn": ["date", "timestamp"],
+          "$workDayId": {
+            "date": {
+              ".validate": "newData.isString() && newData.val().matches(/^\\d{4}-\\d{2}-\\d{2}$/)"
+            },
+            "shift": {
+              ".validate": "newData.isString() && (newData.val() === 'morning' || newData.val() === 'night')"
+            },
+            "workHours": {
+              ".validate": "newData.isNumber() && newData.val() >= 0 && newData.val() <= 24"
+            },
+            "otHours": {
+              ".validate": "newData.isNumber() && newData.val() >= 0 && newData.val() <= 8"
+            },
+            "status": {
+              ".validate": "newData.isString() && (newData.val() === 'work' || newData.val() === 'leave' || newData.val() === 'absent')"
+            },
+            "hourlyRate": {
+              ".validate": "newData.isNumber() && newData.val() >= 0"
+            },
+            "otRate": {
+              ".validate": "newData.isNumber() && newData.val() >= 1"
+            },
+            "workIncome": {
+              ".validate": "newData.isNumber() && newData.val() >= 0"
+            },
+            "otIncome": {
+              ".validate": "newData.isNumber() && newData.val() >= 0"
+            },
+            "totalIncome": {
+              ".validate": "newData.isNumber() && newData.val() >= 0"
+            },
+            "timestamp": {
+              ".validate": "newData.isNumber() && newData.val() <= now"
+            },
+            "$other": {
+              ".validate": false
+            }
+          }
+        },
+        "settings": {
+          ".validate": "newData.hasChildren(['hourlyRate', 'otRate', 'workHours', 'shift', 'socialSecurity'])",
+          "hourlyRate": {
+            ".validate": "newData.isNumber() && newData.val() >= 0"
+          },
+          "otRate": {
+            ".validate": "newData.isNumber() && newData.val() >= 1"
+          },
+          "workHours": {
+            ".validate": "newData.isNumber() && newData.val() >= 0 && newData.val() <= 24"
+          },
+          "shift": {
+            ".validate": "newData.isString() && (newData.val() === 'morning' || newData.val() === 'night')"
+          },
+          "socialSecurity": {
+            ".validate": "newData.isNumber() && newData.val() >= 0 && newData.val() <= 100"
+          },
+          "updatedAt": {
+            ".validate": "newData.isNumber()"
+          },
+          "$other": {
+            ".validate": false
+          }
+        },
+
+
+        "$other": {
+          ".validate": false
+        }
+      }
+    },
+
+    "logs": {
+      ".read": "auth != null",
+      ".write": "auth != null",
+      ".indexOn": ["timestamp"],
+      "$logId": {
+        ".validate": "newData.hasChildren(['user', 'action', 'timestamp'])",
+        "user": { ".validate": "newData.isString()" },
+        "action": { ".validate": "newData.isString()" },
+        "timestamp": { ".validate": "newData.isNumber() && newData.val() <= now" },
+
+        "$other": { ".validate": true }
+      }
+    },
+
+    "$other": {
+      ".read": false,
+      ".write": false
+    }
+  }
+}

@@ -649,29 +649,37 @@
         .site-footer {
             background: rgba(255, 255, 255, 0.85);
             backdrop-filter: blur(10px);
-            border-top: 1px solid rgba(0, 0, 0, 0.05);
-            padding: 22px 0;
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            /* เพิ่มขอบโปร่งแสงเหมือน glass-card */
+            border-top: none;
+            /* เอาเส้นขอบบนเดิมออก ใช้ border รวมแทน */
+            border-radius: 32px 32px 0 0;
+            /* มุมบนโค้งเล็กน้อยให้เข้ากับการ์ด */
+            padding: 1.5rem 0;
             color: #334155;
             font-size: 0.9rem;
+            box-shadow: 0 -8px 20px -8px rgba(0, 0, 0, 0.1);
+            /* เงาด้านบนให้ดูยกขึ้น */
+            margin-top: 2rem;
+            /* กำหนดระยะห่างจากเนื้อหาเป็น 2rem แทนการใช้ mt-5 */
         }
 
-        .site-footer img {
-            object-fit: contain;
-        }
 
-        .site-footer .footer-links {
-            display: flex;
-            justify-content: center;
-            gap: 16px;
-        }
-
+        /* ปรับแต่งลิงก์ใน footer ให้เด่นขึ้น */
         .site-footer .footer-links a {
-            color: #4f46e5;
+            color: var(--primary);
             text-decoration: none;
             font-weight: 500;
             position: relative;
+            transition: color 0.2s;
         }
 
+        .site-footer .footer-links a:hover {
+            color: var(--secondary);
+        }
+
+        /* เส้นใต้เวลา hover ยังใช้ได้เหมือนเดิม */
         .site-footer .footer-links a::after {
             content: "";
             position: absolute;
@@ -686,15 +694,15 @@
         .site-footer .footer-links a:hover::after {
             width: 100%;
         }
-
-        .site-footer small {
-            color: #64748b;
-            line-height: 1.4;
-        }
     </style>
 </head>
 
 <body>
+    <div id="loadingScreen"
+        style="display: flex; align-items: center; justify-content: center; position: fixed; inset: 0; background: white; z-index: 99999;">
+        <div class="spinner-border text-primary" role="status"></div>
+        <span class="ms-2">กำลังโหลด...</span>
+    </div>
 
     <!-- Login Section -->
     <div id="loginSection" class="container-fluid login-section">
@@ -1094,7 +1102,7 @@
     </div>
 
     <!-- Edit Modal (เหมือนเดิม) -->
-    <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+    <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
@@ -1162,7 +1170,7 @@
     </div>
 
 
-    <footer class="site-footer mt-5">
+    <footer class="site-footer">
         <div class="container">
             <div class="row align-items-center gy-3">
                 <!-- Logo + Name -->
@@ -1819,19 +1827,19 @@
         });
 
     </script>
-</body>
+    <script>
+        const provider = new firebase.auth.GoogleAuthProvider();
+        function isMobile() { return /android|iphone|ipad/i.test(navigator.userAgent); }
 
-</html>
+        const oldAuthState = firebase.auth().onAuthStateChanged;
+        firebase.auth().onAuthStateChanged(user => {
+            document.getElementById("loadingScreen").style.display = "none";
+        });
 
-<script>
-    const provider = new firebase.auth.GoogleAuthProvider();
-    function isMobile() { return /android|iphone|ipad/i.test(navigator.userAgent); }
-
-    const oldAuthState = firebase.auth().onAuthStateChanged;
-    firebase.auth().onAuthStateChanged(user => {
-        document.getElementById("loadingScreen").style.display = "none";
-    });
-</script>
+        document.getElementById('editModal').addEventListener('shown.bs.modal', function () {
+            this.removeAttribute('aria-hidden');
+        });
+    </script>
 
 </body>
 
