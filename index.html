@@ -1,27 +1,5 @@
 <!DOCTYPE html>
 <html lang="th">
-<head>
-<meta charset="UTF-8">
-<title>SalaryThai</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<!-- Firebase SDK -->
-    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-database-compat.js"></script>
-
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
-<style>
-#loadingScreen{position:fixed;inset:0;background:white;display:flex;align-items:center;justify-content:center;z-index:99999;font-size:1.2rem}
-</style>
-</head>
-<body>
-
-<div id="loadingScreen">⏳ กำลังตรวจสอบการเข้าสู่ระบบ...</div>
-
-<!DOCTYPE html>
-<html lang="th">
 
 <head>
     <meta charset="UTF-8">
@@ -42,6 +20,13 @@
     <!-- Favicon -->
     <link rel="icon" href="https://i.ibb.co/xKkYqh2w/Salarythai-Logo2.png" type="image/x-icon">
 
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-database-compat.js"></script>
+    
+    <!-- SweetAlert -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <!-- Bootstrap 5 + Icons (Bootstrap Icons added) -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
@@ -51,6 +36,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <style>
+        #loadingScreen{position:fixed;inset:0;background:white;display:flex;align-items:center;justify-content:center;z-index:99999;font-size:1.2rem}
         * {
             font-family: 'Kanit', sans-serif;
             margin: 0;
@@ -238,20 +224,6 @@
             padding: 0;
             min-height: 100vh;
             overflow: hidden;
-        }
-
-        .login-left {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            position: relative;
-        }
-
-        .login-left::before {
-            content: '';
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            background: url('data:image/svg+xml,%3Csvg width="100" height="100" xmlns="http://www.w3.org/2000/svg"%3E%3Cdefs%3E%3Cpattern id="grid" width="100" height="100" patternUnits="userSpaceOnUse"%3E%3Cpath d="M 100 0 L 0 0 0 100" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1"/%3E%3C/pattern%3E%3C/defs%3E%3Crect width="100%25" height="100%25" fill="url(%23grid)"/%3E%3C/svg%3E');
-            opacity: 0.3;
         }
 
         .login-illustration {
@@ -717,41 +689,7 @@
     <!-- Login Section -->
     <div id="loginSection" class="container-fluid login-section">
         <div class="row min-vh-100 align-items-center justify-content-center g-0">
-            <!-- Left Side - Image & Info -->
-            <div class="col-lg-6 d-none d-lg-flex flex-column justify-content-center align-items-center p-5 login-left"
-                data-aos="fade-right" data-aos-duration="800">
-                <div class="login-illustration mb-4">
-                    <img src="https://illustrations.popsy.co/amber/work-from-home.svg" alt="Work illustration"
-                        class="img-fluid"
-                        style="max-width: 500px; filter: drop-shadow(0 20px 40px rgba(79, 70, 229, 0.3));"
-                        onerror="this.src='https://cdni.iconscout.com/illustration/premium/thumb/employee-salary-calculation-illustration-download-in-svg-png-gif-file-formats--wage-pay-payroll-business-pack-illustrations-4391271.png'">
-                </div>
-                <div class="text-center text-white px-4">
-                    <h1 class="display-5 fw-bold mb-3" style="text-shadow: 2px 2px 8px rgba(0,0,0,0.3);">
-                        ระบบคำนวณเงินเดือน
-                    </h1>
-                    <p class="lead mb-4" style="font-size: 1.1rem; opacity: 0.95;">
-                        จัดการข้อมูลการทำงาน คำนวณค่าจ้าง OT และประกันสังคม<br>
-                        อย่างง่ายดายและแม่นยำ
-                    </p>
-                    <div class="d-flex justify-content-center gap-4 mt-4">
-                        <div class="feature-badge">
-                            <i class="bi bi-check-circle-fill" style="font-size: 24px; color: #22c55e;"></i>
-                            <span class="ms-2">คำนวณอัตโนมัติ</span>
-                        </div>
-                        <div class="feature-badge">
-                            <i class="bi bi-shield-check" style="font-size: 24px; color: #22c55e;"></i>
-                            <span class="ms-2">ปลอดภัย</span>
-                        </div>
-                        <div class="feature-badge">
-                            <i class="bi bi-lightning-charge" style="font-size: 24px; color: #22c55e;"></i>
-                            <span class="ms-2">รวดเร็ว</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Right Side - Login Form -->
+            <!-- Login Form -->
             <div class="col-lg-6 col-md-8 col-sm-10 d-flex justify-content-center align-items-center p-4">
                 <div class="login-card" data-aos="fade-left" data-aos-duration="800">
                     <div class="text-center mb-5">
@@ -874,10 +812,18 @@
                             class="d-none d-sm-inline ms-1">Log การใช้งาน</span>
                     </button>
                 </li>
+                <!-- NEW SETTINGS TAB -->
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="settings-tab" data-bs-toggle="tab" data-bs-target="#settings" type="button"
+                        role="tab">
+                        <i class="bi bi-gear" style="font-size: 18px;"></i><span
+                            class="d-none d-sm-inline ms-1">ตั้งค่า</span>
+                    </button>
+                </li>
             </ul>
 
             <div class="tab-content mt-4" id="mainTabsContent">
-                <!-- Work Tab (เนื้อหาเดิม) -->
+                <!-- Work Tab (เนื้อหาที่ปรับแล้ว) -->
                 <div class="tab-pane fade show active" id="work" role="tabpanel">
                     <div class="row g-4">
                         <div class="col-lg-4">
@@ -918,16 +864,7 @@
                                         <option value="absent">ขาด</option>
                                     </select>
                                 </div>
-                                <div class="mb-3">
-                                    <label class="form-label fw-medium">อัตราค่าจ้าง/ชั่วโมง (บาท)</label>
-                                    <input type="number" class="form-control" id="hourlyRate" value="39.50" min="0"
-                                        step="0.01">
-                                </div>
-                                <div class="mb-3">
-                                    <label class="form-label fw-medium">อัตรา OT (เท่า)</label>
-                                    <input type="number" class="form-control" id="otRate" value="1.5" min="1"
-                                        step="0.5">
-                                </div>
+                                <!-- ลบช่อง อัตราค่าจ้าง/ชั่วโมง และ อัตรา OT ออกแล้ว ใช้ค่าจาก Settings แทน -->
                                 <button id="addWorkDay" class="btn btn-primary btn-custom w-100"
                                     style="background: linear-gradient(145deg, var(--primary), var(--secondary));">
                                     <i class="bi bi-plus" style="font-size: 20px;"></i>
@@ -936,8 +873,14 @@
                             </div>
                         </div>
                         <div class="col-lg-8">
-                            <h5 class="mb-3 d-flex align-items-center"><i class="bi bi-list-ul me-2"></i>รายการทำงาน
-                            </h5>
+                            <div class="d-flex align-items-center justify-content-between mb-3">
+                                <h5 class="d-flex align-items-center"><i class="bi bi-list-ul me-2"></i>รายการทำงาน</h5>
+                                <!-- ปุ่มลบทั้งหมด -->
+                                <button id="deleteAllWorkBtn" class="btn btn-outline-danger btn-custom">
+                                    <i class="bi bi-trash3" style="font-size: 18px;"></i>
+                                    ลบรายการทั้งหมด
+                                </button>
+                            </div>
                             <div id="workDaysList" class="work-list"></div>
                         </div>
                     </div>
@@ -1085,6 +1028,49 @@
                                 <i class="bi bi-chevron-double-down" style="font-size: 18px;"></i>
                                 ดู Log ทั้งหมด
                             </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- NEW SETTINGS TAB PANE -->
+                <div class="tab-pane fade" id="settings" role="tabpanel">
+                    <div class="row g-4">
+                        <div class="col-lg-6 mx-auto">
+                            <div class="bg-white p-4 rounded-4 shadow-sm">
+                                <h5 class="mb-4 d-flex align-items-center"><i class="bi bi-gear me-2"
+                                        style="color: var(--primary); font-size: 24px;"></i>ตั้งค่าระบบ</h5>
+                                <div class="mb-3">
+                                    <label class="form-label fw-medium">อัตราค่าจ้างเริ่มต้น / ชั่วโมง (บาท)</label>
+                                    <input type="number" class="form-control" id="settingHourlyRate" min="0" step="0.01" value="39.50">
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label fw-medium">อัตรา OT เริ่มต้น (เท่า)</label>
+                                    <input type="number" class="form-control" id="settingOtRate" min="1" step="0.5" value="1.5">
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label fw-medium">ชั่วโมงทำงานปกติต่อวัน</label>
+                                    <input type="number" class="form-control" id="settingWorkHours" min="0" max="24" step="0.5" value="8">
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label fw-medium">กะเริ่มต้น</label>
+                                    <select class="form-select" id="settingShift">
+                                        <option value="morning">กะเช้า (07:00-19:00)</option>
+                                        <option value="night">กะดึก (19:00-07:00)</option>
+                                    </select>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label fw-medium">อัตราประกันสังคม (%)</label>
+                                    <input type="number" class="form-control" id="settingSocialSecurity" min="0" max="100" step="0.1" value="5">
+                                </div>
+                                <button id="saveSettingsBtn" class="btn btn-primary btn-custom w-100"
+                                    style="background: linear-gradient(145deg, var(--primary), var(--secondary));">
+                                    <i class="bi bi-save" style="font-size: 20px;"></i>
+                                    บันทึกการตั้งค่า
+                                </button>
+                            </div>
+                            <div class="text-muted mt-3 small">
+                                <i class="bi bi-info-circle"></i> ค่าที่ตั้งไว้จะถูกใช้เป็นค่าเริ่มต้นในฟอร์มเพิ่มข้อมูลการทำงาน
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -1291,6 +1277,7 @@
                 userPhoto.src = 'data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'38\' height=\'38\' viewBox=\'0 0 38 38\'%3E%3Ccircle fill=\'%23cbd5e1\' cx=\'19\' cy=\'19\' r=\'19\'/%3E%3Ctext fill=\'%234b5563\' x=\'19\' y=\'25\' font-size=\'20\' text-anchor=\'middle\' dominant-baseline=\'middle\' font-family=\'Kanit, sans-serif\'%3E%3F%3C/text%3E%3C/svg%3E';
             }
 
+            loadSettings();          // โหลดค่าตั้งค่าและนำไปกรอกในฟอร์ม
             loadWorkDays();
             loadLogs();
         }
@@ -1302,15 +1289,89 @@
 
         document.getElementById('workDate').valueAsDate = new Date();
 
-        // CREATE
+        // ---------- SETTINGS FUNCTIONS ----------
+        async function loadSettings() {
+            if (!currentUser) return;
+            const settingsRef = database.ref(`users/${currentUser.uid}/settings`);
+            try {
+                const snapshot = await settingsRef.once('value');
+                const settings = snapshot.val() || {};
+                // ถ้ามีข้อมูลให้เซ็ตค่าใน form settings และ form เพิ่มข้อมูล
+                document.getElementById('settingHourlyRate').value = settings.hourlyRate ?? 39.50;
+                document.getElementById('settingOtRate').value = settings.otRate ?? 1.5;
+                document.getElementById('settingWorkHours').value = settings.workHours ?? 8;
+                document.getElementById('settingShift').value = settings.shift ?? 'morning';
+                document.getElementById('settingSocialSecurity').value = settings.socialSecurity ?? 5;
+
+                // ไม่ต้องอัปเดตค่าใน form เพิ่มข้อมูลแล้ว เพราะไม่มีช่องนั้นแล้ว
+                // แต่ยังคงใช้ค่าใน settings สำหรับคำนวณตอนเพิ่มข้อมูล
+                updateSocialSecurityLabel(settings.socialSecurity ?? 5);
+            } catch (error) {
+                console.error('Error loading settings:', error);
+            }
+        }
+
+        function updateSocialSecurityLabel(rate) {
+            // อัปเดตข้อความใน report tab ให้แสดง % ที่ตั้งไว้
+            const ssLabel = document.querySelector('tr.text-danger td:first-child');
+            if (ssLabel) {
+                ssLabel.innerHTML = `หักประกันสังคม (${rate}%)`;
+            }
+        }
+
+        document.getElementById('saveSettingsBtn').addEventListener('click', async () => {
+            if (!currentUser) return;
+            const settings = {
+                hourlyRate: parseFloat(document.getElementById('settingHourlyRate').value),
+                otRate: parseFloat(document.getElementById('settingOtRate').value),
+                workHours: parseFloat(document.getElementById('settingWorkHours').value),
+                shift: document.getElementById('settingShift').value,
+                socialSecurity: parseFloat(document.getElementById('settingSocialSecurity').value),
+                updatedAt: Date.now()
+            };
+
+            // ตรวจสอบค่า
+            if (isNaN(settings.hourlyRate) || settings.hourlyRate < 0) {
+                Swal.fire('กรุณากรอกอัตราค่าจ้างที่ถูกต้อง', '', 'warning');
+                return;
+            }
+            if (isNaN(settings.otRate) || settings.otRate < 1) {
+                Swal.fire('กรุณากรอกอัตรา OT ที่ถูกต้อง (อย่างน้อย 1)', '', 'warning');
+                return;
+            }
+            if (isNaN(settings.workHours) || settings.workHours < 0 || settings.workHours > 24) {
+                Swal.fire('กรุณากรอกชั่วโมงทำงานปกติ (0-24)', '', 'warning');
+                return;
+            }
+            if (isNaN(settings.socialSecurity) || settings.socialSecurity < 0 || settings.socialSecurity > 100) {
+                Swal.fire('กรุณากรอกอัตราประกันสังคม (0-100)', '', 'warning');
+                return;
+            }
+
+            try {
+                await database.ref(`users/${currentUser.uid}/settings`).set(settings);
+                logActivity('update_settings', 'แก้ไขค่าตั้งค่า');
+                Swal.fire({ icon: 'success', title: 'บันทึกการตั้งค่าเรียบร้อย', timer: 1500, showConfirmButton: false });
+
+                // อัปเดตค่าในฟอร์มเพิ่มข้อมูล (ไม่มีแล้ว) แต่เก็บไว้สำหรับคำนวณ
+                updateSocialSecurityLabel(settings.socialSecurity);
+            } catch (error) {
+                console.error('Error saving settings:', error);
+                Swal.fire('เกิดข้อผิดพลาด', error.message, 'error');
+            }
+        });
+
+        // CREATE - ใช้ค่าจาก settings แทน
         document.getElementById('addWorkDay').addEventListener('click', async () => {
             const workDate = document.getElementById('workDate').value;
             const shift = document.getElementById('shift').value;
             const workHours = parseFloat(document.getElementById('workHours').value);
             const otHours = parseFloat(document.getElementById('otHours').value);
             const status = document.getElementById('status').value;
-            const hourlyRate = parseFloat(document.getElementById('hourlyRate').value);
-            const otRate = parseFloat(document.getElementById('otRate').value);
+
+            // ดึงค่าอัตราจาก settings (จาก input ในแท็บตั้งค่า)
+            const hourlyRate = parseFloat(document.getElementById('settingHourlyRate').value) || 39.50;
+            const otRate = parseFloat(document.getElementById('settingOtRate').value) || 1.5;
 
             if (!workDate) {
                 Swal.fire('กรุณาเลือกวันที่', '', 'warning');
@@ -1344,6 +1405,32 @@
             } catch (error) {
                 console.error('Add work error:', error);
                 Swal.fire('เกิดข้อผิดพลาด', error.message, 'error');
+            }
+        });
+
+        // DELETE ALL
+        document.getElementById('deleteAllWorkBtn').addEventListener('click', async () => {
+            const result = await Swal.fire({
+                title: 'ลบข้อมูลทั้งหมด?',
+                text: 'คุณแน่ใจหรือไม่ว่าต้องการลบรายการทำงานทั้งหมด? การกระทำนี้ไม่สามารถกู้คืนได้',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonText: 'ลบทั้งหมด',
+                cancelButtonText: 'ยกเลิก',
+                confirmButtonColor: '#ef4444'
+            });
+
+            if (result.isConfirmed) {
+                try {
+                    const userRef = database.ref(`users/${currentUser.uid}/workDays`);
+                    await userRef.remove();
+                    logActivity('delete_all_work', 'ลบข้อมูลการทำงานทั้งหมด');
+                    Swal.fire({ icon: 'success', title: 'ลบข้อมูลทั้งหมดสำเร็จ', timer: 1500, showConfirmButton: false });
+                    loadWorkDays(); // จะโหลดข้อมูลว่าง
+                } catch (error) {
+                    console.error('Delete all error:', error);
+                    Swal.fire('เกิดข้อผิดพลาด', error.message, 'error');
+                }
             }
         });
 
@@ -1513,7 +1600,13 @@
             const workIncome = workDays.reduce((sum, d) => sum + d.workIncome, 0);
             const otIncome = workDays.reduce((sum, d) => sum + d.otIncome, 0);
             const grossIncome = workIncome + otIncome;
-            const socialSecurity = grossIncome * 0.05;
+
+            // ดึงอัตราประกันสังคมจากการตั้งค่า หรือใช้ค่าเริ่มต้น 5%
+            let socialSecurityRate = 5;
+            const ssInput = document.getElementById('settingSocialSecurity');
+            if (ssInput) socialSecurityRate = parseFloat(ssInput.value) || 5;
+
+            const socialSecurity = grossIncome * (socialSecurityRate / 100);
             const netIncome = grossIncome - socialSecurity;
 
             document.getElementById('totalWorkDays').textContent = workDaysCount;
@@ -1671,7 +1764,9 @@
                 logout: '<span class="badge bg-secondary">ออกจากระบบ</span>',
                 add_work: '<span class="badge bg-primary">เพิ่มข้อมูล</span>',
                 delete_work: '<span class="badge bg-danger">ลบข้อมูล</span>',
-                update_work: '<span class="badge bg-warning text-dark">แก้ไขข้อมูล</span>'
+                delete_all_work: '<span class="badge bg-danger">ลบทั้งหมด</span>',
+                update_work: '<span class="badge bg-warning text-dark">แก้ไขข้อมูล</span>',
+                update_settings: '<span class="badge bg-info">ตั้งค่า</span>'
             };
             return badges[action] || `<span class="badge bg-info">${action}</span>`;
         }
@@ -1689,6 +1784,7 @@
                 if (tab.id === 'logs-tab') {
                     displayLogs(showAllLogs);
                 }
+                // ถ้าเปิด tab settings อาจจะ refresh settings (แต่ไม่จำเป็น)
             });
         });
 
