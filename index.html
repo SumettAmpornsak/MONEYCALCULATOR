@@ -24,7 +24,7 @@
     <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-database-compat.js"></script>
-    
+
     <!-- SweetAlert -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <!-- Bootstrap 5 + Icons (Bootstrap Icons added) -->
@@ -36,7 +36,17 @@
     <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <style>
-        #loadingScreen{position:fixed;inset:0;background:white;display:flex;align-items:center;justify-content:center;z-index:99999;font-size:1.2rem}
+        #loadingScreen {
+            position: fixed;
+            inset: 0;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 99999;
+            font-size: 1.2rem
+        }
+
         * {
             font-family: 'Kanit', sans-serif;
             margin: 0;
@@ -728,7 +738,7 @@
 
                     <!-- Divider -->
                     <div class="login-divider">
-                        <span>หรือ</span>
+                        <span>ฟังก์ชั่นที่มี</span>
                     </div>
 
                     <!-- Features List -->
@@ -814,8 +824,8 @@
                 </li>
                 <!-- NEW SETTINGS TAB -->
                 <li class="nav-item" role="presentation">
-                    <button class="nav-link" id="settings-tab" data-bs-toggle="tab" data-bs-target="#settings" type="button"
-                        role="tab">
+                    <button class="nav-link" id="settings-tab" data-bs-toggle="tab" data-bs-target="#settings"
+                        type="button" role="tab">
                         <i class="bi bi-gear" style="font-size: 18px;"></i><span
                             class="d-none d-sm-inline ms-1">ตั้งค่า</span>
                     </button>
@@ -1041,15 +1051,18 @@
                                         style="color: var(--primary); font-size: 24px;"></i>ตั้งค่าระบบ</h5>
                                 <div class="mb-3">
                                     <label class="form-label fw-medium">อัตราค่าจ้างเริ่มต้น / ชั่วโมง (บาท)</label>
-                                    <input type="number" class="form-control" id="settingHourlyRate" min="0" step="0.01" value="39.50">
+                                    <input type="number" class="form-control" id="settingHourlyRate" min="0" step="0.01"
+                                        value="39.50">
                                 </div>
                                 <div class="mb-3">
                                     <label class="form-label fw-medium">อัตรา OT เริ่มต้น (เท่า)</label>
-                                    <input type="number" class="form-control" id="settingOtRate" min="1" step="0.5" value="1.5">
+                                    <input type="number" class="form-control" id="settingOtRate" min="1" step="0.5"
+                                        value="1.5">
                                 </div>
                                 <div class="mb-3">
                                     <label class="form-label fw-medium">ชั่วโมงทำงานปกติต่อวัน</label>
-                                    <input type="number" class="form-control" id="settingWorkHours" min="0" max="24" step="0.5" value="8">
+                                    <input type="number" class="form-control" id="settingWorkHours" min="0" max="24"
+                                        step="0.5" value="8">
                                 </div>
                                 <div class="mb-3">
                                     <label class="form-label fw-medium">กะเริ่มต้น</label>
@@ -1060,7 +1073,8 @@
                                 </div>
                                 <div class="mb-3">
                                     <label class="form-label fw-medium">อัตราประกันสังคม (%)</label>
-                                    <input type="number" class="form-control" id="settingSocialSecurity" min="0" max="100" step="0.1" value="5">
+                                    <input type="number" class="form-control" id="settingSocialSecurity" min="0"
+                                        max="100" step="0.1" value="5">
                                 </div>
                                 <button id="saveSettingsBtn" class="btn btn-primary btn-custom w-100"
                                     style="background: linear-gradient(145deg, var(--primary), var(--secondary));">
@@ -1069,7 +1083,8 @@
                                 </button>
                             </div>
                             <div class="text-muted mt-3 small">
-                                <i class="bi bi-info-circle"></i> ค่าที่ตั้งไว้จะถูกใช้เป็นค่าเริ่มต้นในฟอร์มเพิ่มข้อมูลการทำงาน
+                                <i class="bi bi-info-circle"></i>
+                                ค่าที่ตั้งไว้จะถูกใช้เป็นค่าเริ่มต้นในฟอร์มเพิ่มข้อมูลการทำงาน
                             </div>
                         </div>
                     </div>
@@ -1452,7 +1467,7 @@
         function displayWorkDays(workDays) {
             const container = document.getElementById('workDaysList');
             if (workDays.length === 0) {
-                container.innerHTML = '<div class="text-center p-5 bg-white rounded-4 text-muted">📭 ยังไม่มีข้อมูลการทำงาน</div>';
+                container.innerHTML = '<div class="text-center p-5 bg-white rounded-4 text-muted">ยังไม่มีข้อมูลการทำงาน</div>';
                 return;
             }
 
@@ -1713,7 +1728,7 @@
                     <tr>
                         <td colspan="4" class="text-center text-muted py-5">
                             <i class="bi bi-inbox" style="font-size: 32px;"></i>
-                            <div class="mt-2">📭 ยังไม่มีประวัติการใช้งาน</div>
+                            <div class="mt-2">ยังไม่มีประวัติการใช้งาน</div>
                         </td>
                     </tr>
                 `;
@@ -1809,14 +1824,15 @@
 </html>
 
 <script>
-const provider=new firebase.auth.GoogleAuthProvider();
-function isMobile(){return /android|iphone|ipad/i.test(navigator.userAgent);}
+    const provider = new firebase.auth.GoogleAuthProvider();
+    function isMobile() { return /android|iphone|ipad/i.test(navigator.userAgent); }
 
-const oldAuthState=firebase.auth().onAuthStateChanged;
-firebase.auth().onAuthStateChanged(user=>{
- document.getElementById("loadingScreen").style.display="none";
-});
+    const oldAuthState = firebase.auth().onAuthStateChanged;
+    firebase.auth().onAuthStateChanged(user => {
+        document.getElementById("loadingScreen").style.display = "none";
+    });
 </script>
 
 </body>
+
 </html>
